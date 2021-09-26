@@ -9,7 +9,7 @@ services:
     links:
       - swagger-service
     ports:
-      - 80:80
+      - "80:80"
 
   swagger-service:
     build:

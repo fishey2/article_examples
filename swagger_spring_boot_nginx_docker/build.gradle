@@ -1,7 +1,8 @@
 plugins {
+    id 'idea'
     id 'java'
-    id 'org.springframework.boot' version '2.3.2.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'org.springframework.boot' version '2.5.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
 version '1.0-SNAPSHOT'
@@ -11,9 +12,9 @@ repositories {
 }
 
 dependencies {
-    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-web:2.5.5')
 
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.springframework.boot:spring-boot-starter-test:2.5.5')
 }
 
 configurations.all {
@@ -21,6 +22,12 @@ configurations.all {
     exclude group:'junit', module:'junit'
     exclude group:'org.junit.vintage', module:'junit-vintage-engine'
     exclude group:'org.mockito', module:'mockito-all'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
 }
 
 apply from: '../gradle/scripts/test.gradle'
