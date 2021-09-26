@@ -6,8 +6,14 @@
  * Detailed information about configuring a multi-project build in Gradle can be found
  * in the user manual at https://docs.gradle.org/6.5/userguide/multi_project_builds.html
  */
+pluginManagement {
+    repositories {
+        maven { url "https://repo.spring.io/milestone" }
+        gradlePluginPortal()
+    }
+}
 
 rootProject.name = 'article_examples'
 
 include 'swagger_spring_boot_nginx_docker'
-
+include 'java_records_and_lombok'
